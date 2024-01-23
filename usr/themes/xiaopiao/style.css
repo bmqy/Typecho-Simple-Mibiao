@@ -1,0 +1,154 @@
+@font-face {
+  font-family: 'MyFont';
+  src: url('./fonts/DinkieBitmapDemo-9px.ttf') format('truetype');
+}
+
+body {
+  font-family: MyFont, sans-serif;
+
+}
+
+.invoice {
+  width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 3px solid #000;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 34px;
+  margin: 0;
+}
+
+.content {
+  margin-bottom: 20px;
+}
+
+.content p {
+  margin: 0;
+}
+
+.content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.content table th,
+.content table td {
+  padding: 10px;
+  border: none;
+}
+
+.content table th {
+  border-bottom: 2px dashed #000;
+}
+
+.content table th:last-child {
+  padding: 0;
+  border-bottom: 2px dashed #000;
+}
+
+table .item {
+  text-align: center;
+}
+
+.content table tr:first-child th {
+  background-color: transparent;
+}
+
+.store-info {
+  margin-top: 20px;
+}
+
+.shopping-tips {
+  margin-top: 20px;
+  font-size: 12px;
+  text-align: justify;
+  position: relative;
+}
+
+.clear {
+  clear: both;
+}
+
+.order-info,
+.store-info {
+  display: inline-block;
+  padding-right: 30px;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+  color: #000;
+}
+
+.footer,
+.cps-info,
+.theme-info{
+  text-align: center;
+  font-family: auto;
+}
+.footer,
+.footer a,
+.cps-info a,
+.cps-info,
+.theme-info a,
+.theme-info{
+  color: #ccc;
+  font-size: 12px;
+  line-height: 1.8;
+}
+.footer a,
+.cps-info a,
+.theme-info a{
+  padding-bottom: 2px;
+  border-bottom: 1px dotted #e6e6e6;
+}
+
+.footer{
+  margin: 0 auto;
+  padding: 15px 0;
+  text-align: center;
+  font-family: auto;
+}
+
+
+@media (max-width: 767px) {
+  /* Remove borders on mobile devices */
+  .invoice {
+    border: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Adjust font size for mobile devices */
+  .header h1 {
+    font-size: 24px;
+  }
+
+  .content table th,
+  .content table td {
+    padding: 5px;
+  }
+
+  /* Center QR code on mobile devices */
+  #qrcode {
+    margin: 0 auto;
+  }
+
+  /* Adjust padding and width of order-info and store-info on mobile devices */
+  .order-info,
+  .store-info {
+    padding-right: 0;
+    width: 100%;
+  }
+
+}
