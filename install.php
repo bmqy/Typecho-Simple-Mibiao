@@ -302,11 +302,11 @@ function install_get_default_options(): array
             'secret' => \Typecho\Common::randString(32, true),
             'installed' => 0,
             'allowXmlRpc' => 2,
-            'plugin:RestfulApi' => 'a:6:{s:5:"posts";s:1:"1";s:4:"post";s:1:"1";s:6:"origin";s:0:"";s:13:"fieldsPrivacy";s:0:"";s:14:"allowedOptions";s:0:"";s:8:"csrfSalt";s:32:"09feadc6294f7e30c456873a462d6457";}',
             'statisticalCode' => null,
             'cpsInfo' => null,
             'logo' => null,
-            'favicon' => null
+            'favicon' => null,
+            'plugin:RestfulApi' => 'a:6:{s:5:"posts";s:1:"1";s:4:"post";s:1:"1";s:6:"origin";s:0:"";s:13:"fieldsPrivacy";s:0:"";s:14:"allowedOptions";s:0:"";s:8:"csrfSalt";s:32:"09feadc6294f7e30c456873a462d6457";}'
         ];
     }
 
