@@ -270,7 +270,7 @@ class Edit extends ContentsDomain implements ActionInterface
             'price',
             'platforms',
             'tags',
-            'text',
+            'description',
             'link',
             'visibility'
         );
@@ -278,9 +278,9 @@ class Edit extends ContentsDomain implements ActionInterface
         $contents['title'] = $this->request->get('title', _t('未命名域名'));
         $contents['created'] = $this->getCreated();
 
-        if ($this->request->markdown && $this->options->markdown) {
+        /*if ($this->request->markdown && $this->options->markdown) {
             $contents['text'] = '<!--markdown-->' . $contents['text'];
-        }
+        }*/
 
         $contents = self::pluginHandle()->write($contents, $this);
 

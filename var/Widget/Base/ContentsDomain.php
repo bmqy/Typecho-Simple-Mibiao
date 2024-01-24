@@ -113,16 +113,12 @@ class ContentsDomain extends Base implements QueryInterface
             'modified'     => $this->options->time,
             'order'        => empty($rows['order']) ? 100 : intval($rows['order']),
             'authorId'     => $rows['authorId'] ?? $this->user->uid,
-            'text'         => !isset($rows['text']) || strlen($rows['text']) === 0 ? null : $rows['text'],
+            'description'  => !isset($rows['description']) || strlen($rows['description']) === 0 ? null : $rows['description'],
             'type'         => empty($rows['type']) ? 'post' : $rows['type'],
             'status'       => empty($rows['status']) ? 'publish' : $rows['status'],
             'link'     => empty($rows['link']) ? null : $rows['link'],
             'price'        => empty($rows['price']) ? 0 : intval($rows['price']),
-            'commentsNum'  => empty($rows['commentsNum']) ? 0 : $rows['commentsNum'],
-            'allowComment' => !empty($rows['allowComment']) && 1 == $rows['allowComment'] ? 1 : 0,
-            'allowFeed'    => !empty($rows['allowFeed']) && 1 == $rows['allowFeed'] ? 1 : 0,
-            'visitCount'        => empty($rows['visitCount']) ? 0 : intval($rows['visitCount']),
-            'parent'       => empty($rows['parent']) ? 0 : intval($rows['parent'])
+            'visitCount'        => empty($rows['visitCount']) ? 0 : intval($rows['visitCount'])
         ];
 
         if (!empty($rows['cid'])) {
@@ -207,15 +203,11 @@ class ContentsDomain extends Base implements QueryInterface
             'modified'     => $this->options->time,
             'order'        => empty($rows['order']) ? 100 : intval($rows['order']),
             'authorId'     => $rows['authorId'] ?? $this->user->uid,
-            'text'         => !isset($rows['text']) || strlen($rows['text']) === 0 ? null : $rows['text'],
+            'description'  => !isset($rows['description']) || strlen($rows['description']) === 0 ? null : $rows['description'],
             'type'         => empty($rows['type']) ? 'post' : $rows['type'],
             'status'       => empty($rows['status']) ? 'publish' : $rows['status'],
             'link'     => empty($rows['link']) ? null : $rows['link'],
-            'price'        => empty($rows['price']) ? 0 : intval($rows['price']),
-            'commentsNum'  => empty($rows['commentsNum']) ? 0 : $rows['commentsNum'],
-            'allowComment' => !empty($rows['allowComment']) && 1 == $rows['allowComment'] ? 1 : 0,
-            'allowFeed'    => !empty($rows['allowFeed']) && 1 == $rows['allowFeed'] ? 1 : 0,
-            'parent'       => empty($rows['parent']) ? 0 : intval($rows['parent'])
+            'price'        => empty($rows['price']) ? 0 : intval($rows['price'])
         ];
 
         $updateStruct = [];
@@ -1068,10 +1060,9 @@ class ContentsDomain extends Base implements QueryInterface
         $select = $this->db->select(['COUNT(table.contents.cid)' => 'num'])->from('table.contents')
             ->where("table.contents.{$column} > {$offset}")
             ->where(
-                "table.contents.type = ? OR (table.contents.type = ? AND table.contents.parent = ?)",
+                "table.contents.type = ? OR table.contents.type = ?",
                 $type,
-                $type . '_draft',
-                0
+                $type . '_draft'
             );
 
         if (!empty($status)) {

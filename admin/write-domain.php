@@ -28,8 +28,8 @@ include 'menu.php';
                                placeholder="<?php _e('域名'); ?>" class="w-100 text title"/>
                     </p>
                     <p class="text">
-                        <label for="text" class="sr-only"><?php _e('简介'); ?></label>
-                        <input type="text" id="text" name="text" autocomplete="off" value="<?php $post->text(); ?>"
+                        <label for="description" class="sr-only"><?php _e('简介'); ?></label>
+                        <input type="text" id="description" name="description" autocomplete="off" value="<?php $post->description(); ?>"
                                placeholder="<?php _e('简介'); ?>" class="w-100 text mono"/>
                     </p>
                     <p class="price">
