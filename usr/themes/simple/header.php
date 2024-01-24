@@ -24,7 +24,7 @@
     <div class="site-name p-3.5 text-center md:box-content">
         <?php if ($this->options->logo): ?>
         <div id="logo"><a href="<?php $this->options->siteUrl(); ?>">
-            <img src="<?php $this->options->logo() ?>" alt="<?php $this->options->title() ?>"/>
+            <img class="shadow-lg" src="<?php $this->options->logo() ?>" alt="<?php $this->options->title() ?>"/>
         </a></div>
         <?php endif; ?>
         <div><a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title() ?></a></div>

@@ -242,7 +242,7 @@ function install_get_default_options(): array
         $options = [
             'theme' => 'simple',
             'theme:default' => 'a:2:{s:7:"logoUrl";N;s:12:"sidebarBlock";a:5:{i:0;s:15:"ShowRecentPosts";i:1;s:18:"ShowRecentComments";i:2;s:12:"ShowCategory";i:3;s:11:"ShowArchive";i:4;s:9:"ShowOther";}}',
-            'theme:simple' => 'a:1:{s:7:"logoUrl";N;}',
+            'theme:simple' => null,
             'timezone' => '28800',
             'lang' => install_get_lang(),
             'charset' => 'UTF-8',
@@ -302,7 +302,11 @@ function install_get_default_options(): array
             'secret' => \Typecho\Common::randString(32, true),
             'installed' => 0,
             'allowXmlRpc' => 2,
-            'plugin:RestfulApi' => 'a:6:{s:5:"posts";s:1:"1";s:4:"post";s:1:"1";s:6:"origin";s:0:"";s:13:"fieldsPrivacy";s:0:"";s:14:"allowedOptions";s:0:"";s:8:"csrfSalt";s:32:"09feadc6294f7e30c456873a462d6457";}'
+            'plugin:RestfulApi' => 'a:6:{s:5:"posts";s:1:"1";s:4:"post";s:1:"1";s:6:"origin";s:0:"";s:13:"fieldsPrivacy";s:0:"";s:14:"allowedOptions";s:0:"";s:8:"csrfSalt";s:32:"09feadc6294f7e30c456873a462d6457";}',
+            'statisticalCode' => null,
+            'cpsInfo' => null,
+            'logo' => null,
+            'favicon' => null
         ];
     }
 
