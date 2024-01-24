@@ -4,8 +4,8 @@
     主题来源 <a href="https://github.com/Laogesix/xp_mb">@小票米表</a>
 </div>
 <footer class="footer" id="footer" role="contentinfo">
-    &copy; <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>.
-    <?php _e('由 <a href="https://typecho.org">Typecho</a> 强力驱动'); ?>.
+    &copy; <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>.<br/>
+    <?php _e('由 <a href="https://typecho.org">Typecho</a> 强力驱动，<a href="https://github.com/bmqy/Typecho-Simple-Mibiao">Typecho-Simple-Mibiao</a> 提供支持'); ?>.
     <?php if($this->options->cpsInfo !=''): ?>
         <div class="cps-info"><?php $this->options->cpsInfo(); ?></div>
     <?php endif;?>
