@@ -12,9 +12,9 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 $this->need('header.php');
 ?>
 <div class="container p-3.5 mx-auto">
-    <div class="h-12 p-3.5 shadow border-l-4 border-fuchsia-500 text-white bg-gradient-to-r from-violet-500 to-fuchsia-500">在售</div>
-    <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-3">
-        <?php $sales = $this->widget('Widget_Archive@indexSales', 'status=sale&pageSize=50') ?>
+    <div class="h-12 p-3.5 shadow drop-shadow-md border-l-4 border-fuchsia-500 text-white bg-gradient-to-r from-violet-500 to-fuchsia-500">在售</div>
+    <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-3 drop-shadow-md">
+        <?php $sales = $this->widget('Widget_Archive@indexSales', 'status=sale&pageSize=50&orderby=order') ?>
         <?php while ($sales->next()): ?>
             <article class="post shadow p-3.5" itemscope itemtype="http://schema.org/BlogPosting">
                 <h2 class="post-title" itemprop="name headline">
@@ -46,9 +46,9 @@ $this->need('header.php');
 </div>
 
 <div class="container p-3.5 mx-auto mt-8">
-    <div class="h-12 p-3.5 shadow border-l-4 border-blue-500 text-white bg-gradient-to-r from-cyan-500 to-blue-500">已售</div>
-    <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-3">
-        <?php $solds = $this->widget('Widget_Archive@indexSolds', 'status=sold&pageSize=50') ?>
+    <div class="h-12 p-3.5 shadow drop-shadow-md border-l-4 border-blue-500 text-white bg-gradient-to-r from-cyan-500 to-blue-500">已售</div>
+    <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-3 drop-shadow-md">
+        <?php $solds = $this->widget('Widget_Archive@indexSolds', 'status=sold&pageSize=50&orderby=order') ?>
         <?php while ($solds->next()): ?>
             <article class="post shadow p-3.5" itemscope itemtype="http://schema.org/BlogPosting">
                 <h2 class="post-title" itemprop="name headline">
@@ -80,9 +80,9 @@ $this->need('header.php');
 </div>
 
 <div class="container p-3.5 mx-auto mt-8">
-    <div class="h-12 p-3.5 shadow border-l-4 border-purple-500 text-white bg-gradient-to-r from-red-400 to-purple-500">非卖品</div>
-    <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-3">
-        <?php $nots = $this->widget('Widget_Archive@indexNots', 'status=not&pageSize=50') ?>
+    <div class="h-12 p-3.5 shadow drop-shadow-md border-l-4 border-purple-500 text-white bg-gradient-to-r from-red-400 to-purple-500">非卖品</div>
+    <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-3 drop-shadow-md">
+        <?php $nots = $this->widget('Widget_Archive@indexNots', 'status=not&pageSize=50&orderby=order') ?>
         <?php while ($nots->next()): ?>
             <article class="post shadow p-3.5" itemscope itemtype="http://schema.org/BlogPosting">
                 <h2 class="post-title" itemprop="name headline">
