@@ -4,6 +4,10 @@
 
 功能简单，安装完成即可使用。
 
+## 版本信息
+Typecho：1.2.1
+Typecho-Simple-Mibiao(TSM)：1.0.0
+
 ## 功能介绍
 
 - [x] 域名管理；
