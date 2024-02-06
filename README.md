@@ -18,6 +18,7 @@ Typecho-Simple-Mibiao(TSM)：1.0.0
 - [x] 主题选择；  
   - 默认使用简单米表主题；  
   - 集成[小票米表主题](https://github.com/BitCodepot/xp_mb)，感谢 @Sen.ge 分享；
+  - 集成一个[米表网主题](http://1.demo1.mb.cn/)，感谢 [米表网](http://www.mb.cn/)；
 
 - [x] 主题自定义设置；  
 - [x] 访问计数；  
