@@ -51,7 +51,7 @@ function themeConfig($form)
     $banner1 = new \Typecho\Widget\Helper\Form\Element\Text(
         'banner1',
         null,
-        'http://oss.mb.cn/upload/ossfile/3/20200102/1524595e0d9acbd1483xNDVO0.png',
+        '/usr/themes/mibiaowang/static/images/1524595e0d9acbd1483xndvo0.png',
         _t('广告图1'),
         _t('在这里填入一个图片 URL 地址, 以在网站上显示广告图片，例如：http://oss.mb.cn/upload/ossfile/3/20200102/1524595e0d9acbd1483xNDVO0.png')
     );
@@ -60,7 +60,7 @@ function themeConfig($form)
     $banner2 = new \Typecho\Widget\Helper\Form\Element\Text(
         'banner2',
         null,
-        'http://oss.mb.cn/upload/ossfile/3/20200102/1524595e0d9acbd1483xNDVO0.png',
+        '/usr/themes/mibiaowang/static/images/1524595e0d9acbd1483xndvo0.png',
         _t('广告图2'),
         _t('在这里填入一个图片 URL 地址, 以在网站上显示广告图片，例如：http://oss.mb.cn/upload/ossfile/3/20200102/1524595e0d9acbd1483xNDVO0.png')
     );
