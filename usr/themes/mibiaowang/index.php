@@ -61,7 +61,6 @@ $this->need('header.php');
             <div class="column">
                 <i class="iconfont icon-liuchengshezhi fl"></i>
                 <h2 class="hd  fl">交易流程</h2>
-                <a href="http://www.leimi.com" target="_blank" class="more fr">更多+</a>
                 <div class="clear"></div>
             </div>
 
