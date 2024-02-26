@@ -26,7 +26,7 @@ Typecho-Simple-Mibiao(TSM)：1.0.1
 - [x] API接口(1.0.1新增)
   - 插件来源：[https://github.com/moefront/typecho-plugin-Restful](https://github.com/moefront/typecho-plugin-Restful)，感谢@moefront
   - 增加一个获取域名详情的接口，可供外部调用(可方便做数据展示)；
-  - 接口地址：```/api/post?cid=xxx or /index.php/api/post?cid=xxx```
+  - 接口地址：```/api/post?cid=xxx``` or ```/index.php/api/post?cid=xxx```
 
 ## 截图预览
 
