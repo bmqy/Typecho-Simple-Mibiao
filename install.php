@@ -259,7 +259,7 @@ function install_get_default_options(): array
             'commentsWhitelist' => 0,
             'commentsRequireURL' => 0,
             'commentsRequireModeration' => 0,
-            'plugins' => 'a:2:{s:9:"activated";a:2:{s:12:"VisitCounter";a:1:{s:7:"handles";a:1:{s:21:"Widget_Archive:footer";a:1:{i:0;a:2:{i:0;s:19:"VisitCounter_Plugin";i:1;s:16:"updateVisitCount";}}}}s:10:"RestfulApi";a:1:{s:7:"handles";a:1:{s:23:"Widget_Feedback:comment";a:1:{i:0;a:2:{i:0;s:17:"RestfulApi_Plugin";i:1;s:7:"comment";}}}}}s:7:"handles";a:2:{s:21:"Widget_Archive:footer";a:1:{i:0;a:2:{i:0;s:19:"VisitCounter_Plugin";i:1;s:16:"updateVisitCount";}}s:23:"Widget_Feedback:comment";a:1:{i:0;a:2:{i:0;s:17:"RestfulApi_Plugin";i:1;s:7:"comment";}}}}',
+            'plugins' => 'a:2:{s:9:"activated";a:2:{s:12:"VisitCounter";a:1:{s:7:"handles";a:1:{s:21:"Widget_Archive:footer";a:1:{i:0;a:2:{i:0;s:19:"VisitCounter_Plugin";i:1;s:16:"updateVisitCount";}}}}s:10:"RestfulApi";a:1:{s:7:"handles";a:1:{s:26:"Widget_Archive:indexHandle";a:1:{i:0;a:2:{i:0;s:17:"RestfulApi_Plugin";i:1;s:11:"addApiRoute";}}}}}s:7:"handles";a:2:{s:21:"Widget_Archive:footer";a:1:{i:0;a:2:{i:0;s:19:"VisitCounter_Plugin";i:1;s:16:"updateVisitCount";}}s:26:"Widget_Archive:indexHandle";a:1:{i:0;a:2:{i:0;s:17:"RestfulApi_Plugin";i:1;s:11:"addApiRoute";}}}}',
             'commentDateFormat' => 'F jS, Y \a\t h:i a',
             'siteUrl' => install_get_site_url(),
             'defaultCategory' => 1,
@@ -306,7 +306,6 @@ function install_get_default_options(): array
             'cpsInfo' => null,
             'logo' => null,
             'favicon' => null,
-            'plugin:RestfulApi' => 'a:6:{s:5:"posts";s:1:"1";s:4:"post";s:1:"1";s:6:"origin";s:0:"";s:13:"fieldsPrivacy";s:0:"";s:14:"allowedOptions";s:0:"";s:8:"csrfSalt";s:32:"09feadc6294f7e30c456873a462d6457";}'
         ];
     }
 
