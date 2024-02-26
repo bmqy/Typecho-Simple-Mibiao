@@ -23,13 +23,7 @@ class RestfulApi_Plugin implements Typecho_Plugin_Interface
      */
     public static function activate()
     {
-        $routes = call_user_func(array(self::ACTION_CLASS, 'getRoutes'));
-        foreach ($routes as $route) {
-            Helper::addRoute($route['name'], $route['uri'], self::ACTION_CLASS, $route['action']);
-        }
-        Typecho_Plugin::factory('Widget_Feedback')->comment = array(__CLASS__, 'comment');
-
-        return '_(:з」∠)_';
+        Typecho_Plugin::factory('Widget_Archive')->indexHandle = array(__CLASS__, 'addApiRoute');
     }
 
     /**
@@ -42,12 +36,13 @@ class RestfulApi_Plugin implements Typecho_Plugin_Interface
      */
     public static function deactivate()
     {
-        $routes = call_user_func(array(self::ACTION_CLASS, 'getRoutes'));
-        foreach ($routes as $route) {
-            Helper::removeRoute($route['name']);
-        }
-
-        return '( ≧Д≦)';
+        // 禁用时不需要执行操作
+        // 防止禁用
+        $options = Typecho_Widget::widget('Widget_Options');
+        $config = $options->plugin('RestfulApi');
+        $config->activated = 1;
+        $config->to($options)->save();
+        Notice::alloc()->set(_t('此插件为系统级插件，不能被禁用！！！'), 'notice');
     }
 
     /**
@@ -58,71 +53,7 @@ class RestfulApi_Plugin implements Typecho_Plugin_Interface
      * @return void
      */
     public static function config(Typecho_Widget_Helper_Form $form)
-    {
-        $prefix = defined('__TYPECHO_RESTFUL_PREFIX__') ? __TYPECHO_RESTFUL_PREFIX__ : '/api/';
-        /* API switcher */
-        $routes = call_user_func(array(self::ACTION_CLASS, 'getRoutes'));
-        echo '<h3>API 状态设置</h3>';
-
-        foreach ($routes as $route) {
-            if ($route['shortName'] == 'upgrade') {
-                continue;
-            }
-            if ($route['shortName'] != 'posts' and $route['shortName'] != 'post') {
-                continue;
-            }
-            $tmp = new Typecho_Widget_Helper_Form_Element_Radio($route['shortName'], array(
-                0 => _t('禁用'),
-                1 => _t('启用'),
-            ), 1, $route['uri'], _t($route['description']));
-            $form->addInput($tmp);
-        }
-        /* cross-origin settings */
-        $origin = new Typecho_Widget_Helper_Form_Element_Textarea('origin', null, null, _t('域名列表'), _t('一行一个<br>以下是例子qwq<br>http://localhost:8080<br>https://blog.example.com<br>若不限制跨域域名，请使用通配符 *。'));
-        $form->addInput($origin);
-
-        /* custom field privacy */
-        $fieldsPrivacy = new Typecho_Widget_Helper_Form_Element_Text('fieldsPrivacy', null, null, _t('自定义字段过滤'), _t('过滤掉不希望在获取文章信息时显示的自定义字段名称。使用半角英文逗号分隔，例如 fields1,fields2 .'));
-        $form->addInput($fieldsPrivacy);
-
-        /* allowed options attribute */
-        $allowedOptions = new Typecho_Widget_Helper_Form_Element_Text('allowedOptions', null, null, _t('自定义设置项白名单'), _t('默认情况下 /api/settings 只会返回一些安全的站点设置信息。若有需要你可以在这里指定允许返回的存在于 typecho_options 表中的字段，并通过 ?key= 参数请求。使用半角英文逗号分隔每个 key, 例如 keywords,theme .'));
-        $form->addInput($allowedOptions);
-
-        /* CSRF token salt */
-        $csrfSalt = new Typecho_Widget_Helper_Form_Element_Text('csrfSalt', null, '05faabd6637f7e30c797973a558d4372', _t('CSRF加密盐'), _t('请务必修改本参数，以防止跨站攻击。'));
-        $form->addInput($csrfSalt);
-        ?>
-<script>
-function restfulUpgrade(e) {
-    var originalText = e.innerHTML;
-    var waitingText = '<?php echo _t('请稍后...');?>';
-    if (e.innerHTML === waitingText) {
-        return;
-    }
-    e.innerHTML = waitingText;
-    var x = new XMLHttpRequest();
-    x.open('GET', '<?php echo rtrim(Helper::options()->index, '/') . $prefix . 'upgrade';?>', true);
-    x.onload = function() {
-        var data = JSON.parse(x.responseText);
-        if (x.status >= 200 && x.status < 400) {
-            if (data.status === 'success') {
-                alert('<?php echo _t('更新成功，您可能需要禁用插件再启用。');?>');
-            } else {
-                alert(data.message);
-            }
-        } else {
-            alert(data.message);
-        }
-    };
-    x.onerror = function() {
-        alert('<?php echo _t('网络异常，请稍后再试');?>');
-    };
-    x.send();
-}
-</script>
-<?php
-    }
+    {}
 
     /**
      * 个人用户的配置面板
@@ -134,20 +65,10 @@ function restfulUpgrade(e) {
     public static function personalConfig(Typecho_Widget_Helper_Form $form)
     {}
 
-    /**
-     * 构造评论真实IP
-     *
-     * @return array
-     */
-    public static function comment($comment, $post)
-    {
-        $request = Typecho_Request::getInstance();
-
-        $customIp = $request->getServer('HTTP_X_TYPECHO_RESTFUL_IP');
-        if ($customIp != null) {
-            $comment['ip'] = $customIp;
+    public static function addApiRoute(){
+        $routes = call_user_func(array(self::ACTION_CLASS, 'getRoutes'));
+        foreach ($routes as $route) {
+            Helper::addRoute($route['name'], $route['uri'], self::ACTION_CLASS, $route['action']);
         }
-
-        return $comment;
     }
 }
