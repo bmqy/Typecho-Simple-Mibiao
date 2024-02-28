@@ -17,6 +17,11 @@
     <?php if($this->options->statisticalCode !=''): ?>
         <div style="display: none;"><?php $this->options->statisticalCode(); ?></div>
     <?php endif;?>
+    <?php if($this->options->customCss !=''): ?>
+        <style>
+            <?php $this->options->customCss(); ?>
+        </style>
+    <?php endif;?>
 </head>
 <body>
 

@@ -5,8 +5,8 @@
 功能简单，安装完成即可使用。
 
 ## 版本信息
-Typecho：1.2.1
-Typecho-Simple-Mibiao(TSM)：1.0.1
+Typecho：```1.2.1```  
+Typecho-Simple-Mibiao(TSM)：```1.0.2```
 
 ## 功能介绍
 
@@ -27,6 +27,17 @@ Typecho-Simple-Mibiao(TSM)：1.0.1
   - 插件来源：[https://github.com/moefront/typecho-plugin-Restful](https://github.com/moefront/typecho-plugin-Restful)，感谢@moefront
   - 增加一个获取域名详情的接口，可供外部调用(可方便做数据展示)；
   - 接口地址：```/api/post?cid=xxx``` or ```/index.php/api/post?cid=xxx```
+
+## 更新日志
+- 1.0.2
+  - 简单米表主题支持自定义css样式；  
+  - 简单米表主题支持当前访问域名标记；
+
+- 1.0.1  
+  - 更新api支持；
+  
+- 1.0.0  
+  - 上线
 
 ## 截图预览
 

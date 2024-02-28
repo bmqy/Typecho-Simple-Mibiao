@@ -10,13 +10,14 @@
 
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 $this->need('header.php');
+$request = Typecho_Request::getInstance();
 ?>
 <div class="container p-3.5 mx-auto">
     <div class="h-12 p-3.5 shadow drop-shadow-md border-l-4 border-fuchsia-500 text-white bg-gradient-to-r from-violet-500 to-fuchsia-500">在售</div>
     <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-3 drop-shadow-md">
         <?php $sales = $this->widget('Widget_Archive@indexSales', 'status=sale&pageSize=50&orderby=order') ?>
         <?php while ($sales->next()): ?>
-            <article class="post shadow p-3.5" itemscope itemtype="http://schema.org/BlogPosting">
+            <article class="post shadow p-3.5 <?=$request->get('referrer', '')==$sales->title ? 'border-b-blue-500 border-b-4' : '' ?>" itemscope itemtype="http://schema.org/BlogPosting">
                 <h2 class="post-title" itemprop="name headline">
                     <?php $sales->title() ?>
                 </h2>

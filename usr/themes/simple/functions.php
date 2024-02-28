@@ -29,6 +29,15 @@ function themeConfig($form)
         _t('在这里填入Telegram用户名')
     );
     $form->addInput($tgUsername);
+
+    $customCss = new \Typecho\Widget\Helper\Form\Element\Textarea(
+        'customCss',
+        null,
+        null,
+        _t('自定义css'),
+        _t('在这里填入你自定义的css样式代码')
+    );
+    $form->addInput($customCss);
 }
 
 /*
