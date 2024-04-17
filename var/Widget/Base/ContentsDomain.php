@@ -14,7 +14,6 @@ use Typecho\Widget;
 use Utils\AutoP;
 use Utils\Markdown;
 use Widget\Base;
-use Widget\Metas\Category\Rows;
 use Widget\Upload;
 use Widget\Users\Author;
 
@@ -499,8 +498,6 @@ class ContentsDomain extends Base implements QueryInterface
         $routeExists = (null != Router::get($type));
 
         $tmpSlug = $value['slug'];
-        $tmpCategory = $value['category'];
-        $tmpDirectory = $value['directory'];
         $value['slug'] = urlencode($value['slug']);
 
         /** 生成静态路径 */
@@ -676,58 +673,6 @@ class ContentsDomain extends Base implements QueryInterface
     }
 
     /**
-     * 输出文章分类
-     *
-     * @param string $split 多个分类之间分隔符
-     * @param boolean $link 是否输出链接
-     * @param string|null $default 如果没有则输出
-     */
-    public function category(string $split = ',', bool $link = true, ?string $default = null)
-    {
-        $categories = $this->categories;
-        if ($categories) {
-            $result = [];
-
-            foreach ($categories as $category) {
-                $result[] = $link ? '<a href="' . $category['permalink'] . '">'
-                    . $category['name'] . '</a>' : $category['name'];
-            }
-
-            echo implode($split, $result);
-        } else {
-            echo $default;
-        }
-    }
-
-    /**
-     * 输出文章多级分类
-     *
-     * @param string $split 多个分类之间分隔符
-     * @param boolean $link 是否输出链接
-     * @param string|null $default 如果没有则输出
-     * @throws \Typecho\Widget\Exception
-     */
-    public function directory(string $split = '/', bool $link = true, ?string $default = null)
-    {
-        $category = $this->categories[0];
-        $directory = Rows::alloc()->getAllParents($category['mid']);
-        $directory[] = $category;
-
-        if ($directory) {
-            $result = [];
-
-            foreach ($directory as $category) {
-                $result[] = $link ? '<a href="' . $category['permalink'] . '">'
-                    . $category['name'] . '</a>' : $category['name'];
-            }
-
-            echo implode($split, $result);
-        } else {
-            echo $default;
-        }
-    }
-
-    /**
      * 输出文章标签
      *
      * @param string $split 多个标签之间分隔符
@@ -854,6 +799,7 @@ class ContentsDomain extends Base implements QueryInterface
     {
         $plainTxt = str_replace("\n", '', trim(strip_tags($this->description)));
         $plainTxt = $plainTxt ? $plainTxt : $this->title;
+        $plainTxt = $plainTxt ? $plainTxt : '';
         return Common::subStr($plainTxt, 0, 100, '...');
     }
 

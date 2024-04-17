@@ -6,7 +6,7 @@
 
 ## 版本信息
 Typecho：```1.2.1```  
-Typecho-Simple-Mibiao(TSM)：```1.0.2```
+Typecho-Simple-Mibiao(TSM)：```1.0.3```
 
 ## 功能介绍
 
@@ -28,7 +28,34 @@ Typecho-Simple-Mibiao(TSM)：```1.0.2```
   - 增加一个获取域名详情的接口，可供外部调用(可方便做数据展示)；
   - 接口地址：```/api/post?cid=xxx``` or ```/index.php/api/post?cid=xxx```
 
+## 部署
+### 环境变量
+```plaintext
+驱动：TYPECHO_ADAPTER_NAME
+表前缀：TYPECHO_PREFIX
+地址：TYPECHO_HOST
+端口：TYPECHO_PORT，例如：3306
+用户名：TYPECHO_USERNAME
+密码：TYPECHO_PASSWORD
+编码：TYPECHO_CHARSET
+数据库名：TYPECHO_NAME
+引擎：TYPECHO_ENGINE，例如：InnoDB
+证书：TYPECHO_SSL_CA
+```
+### 主机/服务器部署
+- 如需全新安装，可先删除```config.inc.php```文件，然后访问你的域名即可进入安装流程；  
+- 如需使用```环境变量```，请将```config.inc.php```文件中的```$_ENV```替换为```$_SERVER```，然后部署到主机上即可；  
+### Vercel
+- 请先```Fork```本仓库
+- 配置环境变量
+- 然后在```Vercel```上进行部署；
+### 参考资料
+部署问题可参考：https://www.bmqy.net/2663.html
 ## 更新日志
+- 1.0.3
+  - 修复一些无关紧要的```bug```；
+  - 支持部署到```Vercel```；
+  
 - 1.0.2
   - 简单米表主题支持自定义css样式；  
   - 简单米表主题支持当前访问域名标记；

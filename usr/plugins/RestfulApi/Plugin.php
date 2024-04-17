@@ -23,7 +23,7 @@ class RestfulApi_Plugin implements Typecho_Plugin_Interface
      */
     public static function activate()
     {
-        Typecho_Plugin::factory('Widget_Archive')->indexHandle = array(__CLASS__, 'addApiRoute');
+        \Typecho\Plugin::factory('index.php')->begin = __CLASS__ . '::addApiRoute';
     }
 
     /**
