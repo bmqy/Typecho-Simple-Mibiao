@@ -6,7 +6,7 @@
 
 ## 版本信息
 Typecho：```1.2.1```  
-Typecho-Simple-Mibiao(TSM)：```1.0.3```
+Typecho-Simple-Mibiao(TSM)：```1.0.4```
 
 ## 功能介绍
 
@@ -52,6 +52,9 @@ Typecho-Simple-Mibiao(TSM)：```1.0.3```
 ### 参考资料
 部署问题可参考：https://www.bmqy.net/2663.html
 ## 更新日志
+- 1.0.4
+  - 修复QQ客服链接失效问题；
+  
 - 1.0.3
   - 修复一些无关紧要的```bug```；
   - 支持部署到```Vercel```；
