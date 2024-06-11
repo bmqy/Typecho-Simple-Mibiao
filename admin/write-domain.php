@@ -29,7 +29,7 @@ include 'menu.php';
                     </p>
                     <p class="text">
                         <label for="description" class="sr-only"><?php _e('简介'); ?></label>
-                        <input type="text" id="description" name="description" autocomplete="off" value="<?php $post->description(); ?>"
+                        <input type="text" id="description" name="description" autocomplete="off" value="<?php echo $post->description; ?>"
                                placeholder="<?php _e('简介'); ?>" class="w-100 text mono"/>
                     </p>
                     <p class="price">
@@ -48,7 +48,7 @@ include 'menu.php';
                     </p>
                     <p class="orderNumber">
                         <label for="orderNumber" class="sr-only"><?php _e('排序'); ?></label>
-                        <input type="text" id="orderNumber" name="orderNumber" autocomplete="off" value="<?php $post->orderNumber(); ?>"
+                        <input type="text" id="orderNumber" name="orderNumber" autocomplete="off" value="<?php echo $post->order; ?>"
                                placeholder="<?php _e('排序'); ?>" class="w-100 text orderNumber"/>
                     </p>
 

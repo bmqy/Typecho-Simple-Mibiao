@@ -272,6 +272,7 @@ class Edit extends ContentsDomain implements ActionInterface
             'tags',
             'description',
             'link',
+            'order',
             'visibility'
         );
 
