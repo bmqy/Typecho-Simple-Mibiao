@@ -12,9 +12,9 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            #Github #简单米表 #TypechoSimpleMibiao #发布更新
+            #Github #简单米表 #发布更新
             
-            ${{ github.actor }} created commit:
-            Commit message: ${{ github.event.commits[0].message }}
-            Repository: ${{ github.repository }}
-            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+            发布人：${{ github.actor }}
+            提交消息: ${{ github.event.commits[0].message }}
+            提交项目: ${{ github.repository }}
+            查看变更: https://github.com/${{ github.repository }}/commit/${{github.sha}}
