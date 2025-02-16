@@ -12,7 +12,8 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            #Github #简单米表 #Typecho-Simple-Mibiao
+            #Github #简单米表 #Typecho-Simple-Mibiao #发布更新
+            
             ${{ github.actor }} created commit:
             Commit message: ${{ github.event.commits[0].message }}
             Repository: ${{ github.repository }}
